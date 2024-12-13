@@ -4,7 +4,7 @@ Welcome to the **Git Essential** repository! Here, we’ll explore the foundatio
 
 ## What is Git?
 
-Git is a distributed version control system created in [2005](https://github.com/git/git/commit/e83c5163316f89bfbde7d9ab23ca2e25604af290) by [**Linus Torvalds**](https://github.com/torvalds) the same developer behind the Linux kernel. The need for a secure, fast, and reliable version control system arose during the development of Linux itself. Git quickly gained prominence for its innovative features and the security it offers for handling change history.
+Git is a distributed version control system created in [2005](https://github.com/git/git/commit/e83c5163316f89bfbde7d9ab23ca2e25604af290) by [**Linus Torvalds**](https://github.com/torvalds), the same developer behind the Linux kernel. The need for a secure, fast, and reliable version control system arose during the development of Linux itself. Git quickly gained prominence for its innovative features and the security it offers for handling change history.
 
 ## What is Git used for?
 
@@ -29,39 +29,51 @@ Getting started with Git can seem complex, but a few essential commands cover mo
    git config --global user.email "youremail@example.com"
    ```
 
+## Essential Command Guide (Organized by Usage Order)
 
-## Essential Command Guide
-
-- **`git clone repository-url-from-github`**: Clones a remote repository from GitHub to your local environment.
+### Setting Up a Repository
 
 - **`git init`**: Initializes a new Git repository in the current directory.
+
+- **`git remote add origin <repository-url>`**: Adds a remote repository to the local one with the name "origin." 
+
+- **`git branch -M main`**: Renames the current branch to "main." The `-M` option forces the rename, moving the branch if necessary.
+
+### Managing Files and Changes
 
 - **`git add .`**: Adds all files and changes in the current directory to the staging area, preparing them for the commit.
 
 - **`git commit -m "commit message"`**: Records the changes in the staging area with a descriptive message about what was modified.
 
-- **`git branch -M main`**: Renames the current branch to "main". The `-M` option forces the rename, moving the branch if necessary.
+- **`git commit --amend -m "rewritten_message"`**: Changes the message of the last commit. After using this command, sync with the remote using `git push --force-with-lease`.
 
-- **`git remote add origin https://github.com/username/repository-name.git`**: Adds a remote repository to the local one with the name "origin". Use `https://github.com/username` to set up the remote repository via HTTPS or `git@github.com:username` for SSH.
+### Synchronizing with Remote Repositories
+
+- **`git clone <repository-url>`**: Clones a remote repository from GitHub to your local environment.
 
 - **`git push -u origin main`**: Sends the commits on the "main" branch to the "origin" remote repository, setting "main" as the default branch for future push and pull commands. The `-u` option sets the upstream to simplify future push and pull commands.
 
-- **`git remote add origin git@github.com:username/project.git` `git branch -M main` `git push -u origin main`**: To connect a local repository to a remote repository on GitHub. Adds the remote repository, renames the main branch to "main," and pushes the initial commits.
+- **`git pull origin main`**: Updates the local "main" branch with changes from the "origin" remote repository, combining `git fetch` and `git merge`.
+
+### Advanced Change Management
 
 - **`git fetch`**: Fetches updates from the remote repository without merging them into the current branch, updating remote references.
 
-- **`git pull origin main`**: Updates the local "main" branch with changes from the "origin" remote repository, combining `git fetch` and `git merge`.
+- **`git merge <branch-name>`**: Combines the changes from the specified branch into the current branch. For example, to merge a feature branch into `main`:
+
+   ```bash
+   git merge feature-branch
+   ```
+
+   This command applies the changes from the `feature-branch` to `main`, maintaining a clear history of commits. It’s particularly useful in workflows like the Feature Branch Workflow.
+
+- **`git revert <commit-hash>`**: Creates a new commit that undoes the changes made by the specified commit, preserving the history. Useful for safely reversing changes without rewriting the history.
+
+- **`git reset --hard <commit-hash>`**: Resets the repository to the state of the specified commit, deleting all changes made after that commit. Ideal for local use. To sync remotely, follow up with `git push --force-with-lease`.
+
+- **`git cherry-pick <commit-hash>`**: Used to retrieve a specific commit. Example: Suppose you have two branches ("main" and "develop") and want to pick just one commit from "develop"; `cherry-pick` allows you to do this.
 
 - **`git push --force-with-lease`**: A safer way to force-push local changes to the remote repository. It checks that no changes have been made by other collaborators, avoiding accidental overwrites.
-
-- **`git revert id_of_commit_to_be_reverted`**: Creates a new commit that undoes the changes made by the specified commit, preserving the history. Useful for safely reversing changes without rewriting the history.
-
-- **`git reset --hard id_of_commit_before_the_one_to_be_deleted`**: Resets the repository to the state of the specified commit, deleting all changes made after that commit. Ideal for local use. To sync remotely, follow up with `git push --force-with-lease`.
-
-- **`git commit --amend -m "rewritten_message"`**: Changes the message of the last commit. After using this command, sync with the remote using `git push --force-with-lease`.
-
-- **`git cherry-pick COMMIT_HASH`**: Used to retrieve a specific commit. Example: Suppose you have two branches ("main" and "develop") and want to pick just the first commit from "develop"; `cherry-pick` allows you to do this.
-
 
 ## Workflows
 
@@ -130,7 +142,6 @@ Ideal for: Teams following DevOps practices who need high delivery speed.
 ### How to Choose the Best Workflow?
 
 Choosing a workflow depends on factors such as team size, project complexity, and release frequency. Experiment with different approaches to find the one that best suits your needs. Practicing and adapting workflows will help your team gain efficiency and maintain a clean and organized code history.
-
 
 ## Common Terms
 
