@@ -2,6 +2,17 @@
 
 Welcome to the **Git Essential** repository! Here, we’ll explore the foundational concepts and key commands of Git, one of the most popular and powerful tools for version control.
 
+# Table of Contents
+
+1. [What is Git?](#what-is-git)
+2. [What is Git used for?](#what-is-git-used-for)
+3. [How to Use Git Simply](#how-to-use-git-simply)
+4. [Essential Command Guide](#essential-command-guide)
+5. [Workflows](#workflows)
+6. [Common Terms](#common-terms)
+7. [About the Author](#about-the-author)
+8. [License](#license)
+
 ## What is Git?
 
 Git is a distributed version control system created in [2005](https://github.com/git/git/commit/e83c5163316f89bfbde7d9ab23ca2e25604af290) by [**Linus Torvalds**](https://github.com/torvalds), the same developer behind the Linux kernel. The need for a secure, fast, and reliable version control system arose during the development of Linux itself. Git quickly gained prominence for its innovative features and the security it offers for handling change history.
