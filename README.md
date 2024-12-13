@@ -1,5 +1,9 @@
 # Git Essential
 
+<p align="center">
+  <img src="img/git-essentials.png" alt="Commit Patterns">
+</p>
+
 Welcome to the **Git Essential** repository! Here, we’ll explore the foundational concepts and key commands of Git, one of the most popular and powerful tools for version control.
 
 # Table of Contents
